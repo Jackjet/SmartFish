@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "历史数据查询";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+@section Header{
+    <link href="/Content/css/SelectHistory.css" rel="stylesheet" />
+}
+@{List<WLXK.SmartFish.Model.ReceiveDatas> datas = ViewData["receive"] as List<WLXK.SmartFish.Model.ReceiveDatas>;}
+<div position="center" title="智能鱼塘历史数据" style="width:100%">
+    <div class="inner">
+        <h2>数据查询</h2>
+        <form action="/Home/SelectHistory" method="post">
+            节点：<select id="jiedian">
+                <option value="1" selected>1号节点</option>
+                <option value="2">2号节点</option>
+            </select>
+            数据量：<select id="datasource">
+                <option value="0" selected>温度、水温</option>
+                <option value="1">PH值</option>
+                <option value="2">溶解氧</option>
+                <option value="3">光照</option>
+                <option value="4">环境湿度</option>
+            </select>
+            日期：<input type="date" id="today" value="@ViewData["today"]" />
+            <input type="button" id="select" value="查询数据" />
+            <input type="button" id="output" value="导出数据" />
+        </form>
+        <br />
+        <img id="myimage" src="" alt="请选择选项进行查询" height="380" width="650" />
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        
+        $("#select").click(function () {
+            var jiedian = $("#jiedian option:selected").val();
+            var data = $("#datasource option:selected").val();
+            var today = $("#today").val();
+            $("#myimage").attr("src", "/Home/CreateImage?jiedian=" + jiedian + "&data=" + data + "&today=" + today);
+        });
+        $("#output").click(function () {
+            var jiedian = $("#jiedian option:selected").val();
+            var data = $("#datasource option:selected").val();
+            var today = $("#today").val();
+            $.post("/Home/GetExcel", { jiedian: jiedian, data: data, today: today }, function (data) {
+                alert(data);
+                window.open(data);
+            })
+        })
+    })
+   
+</script>

@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Runtime.Remoting.Messaging;
+using System.Text;
+using WLXK.SmartFish.Model;
+
+namespace WLXK.SmartFish.Dal
+{
+    public static class EFContextFactory
+    {
+        public static DbContext GetCurrentEFContext()
+        {
+            DbContext db = (DbContext)CallContext.GetData("EFContext");
+            if (db == null)
+            {
+                db = new qtcSecondHandEntities();
+                CallContext.SetData("EFContext", db);
+            }
+            return db;
+        }
+    }
+}

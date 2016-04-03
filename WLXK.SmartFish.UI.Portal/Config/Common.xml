@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object type="WLXK.SmartFish.UI.Portal.Common.SerialPortHelper, WLXK.SmartFish.UI.Portal" singleton="false" >
+    <property name="ReceiveDatasServices" ref="ReceiveDatasServices"/>
+    <property name="ControlDataServices" ref="ControlDataServices"/>
+  </object>
+</objects>

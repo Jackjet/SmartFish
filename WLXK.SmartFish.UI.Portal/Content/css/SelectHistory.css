@@ -1,0 +1,27 @@
+﻿.inner {
+    margin-left: 150px;
+    width: auto;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.ddlDepart {
+    width: 80px;
+    border: 1px solid #AECAF0;
+}
+
+.button_my {
+    width: 80px;
+    height: 25px;
+    float: left;
+    margin-left: 30px;
+}
+
+table tr td {
+    /*width:150px;*/
+}
+
+table {
+    width: 800px;
+    margin-top: 10px;
+}

@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "水质检测";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+@section Header{
+    <script src="/Scripts/View/IndexWater.js"></script>
+    <link href="/Content/css/IndexWater.css" rel="stylesheet" />
+
+}
+@{if (ViewData["model"] != null)
+{
+    WLXK.SmartFish.Model.ControlData modelData = ViewData["model"] as WLXK.SmartFish.Model.ControlData;
+
+    <div position="center" title="鱼塘水质监测系统">
+        <div class="list" style="width:330px;margin:25px;float:left;">
+            <div title="鱼塘水温" class="main_group">
+                <div class="jiedian">
+                    节点：<select id="shuiwensel">
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                </div>
+                <span class="contains" style="margin-top:0px;">
+                    <span class="count" id="shuiwen">--</span>摄氏度
+                </span>
+                <img class="con_img" height="90" src="/Content/images/piandi.jpg" />
+                <span class="nowvalues">
+                    设定值：<span class="values">@modelData.MinTemperate-@modelData.MaxTemperate</span>
+                    状态：<span class="values">正常</span>
+                </span>
+            </div>
+        </div>
+        <div class="list" style="width:330px;margin:25px;float:left;">
+            <div title="溶解氧" class="main_group">
+                <span class="contains">
+                    <span class="count" id="rongjieyang">--</span>mg/L
+                </span>
+                <img class="con_img" style="margin-left:40px;" height="90" src="/Content/images/shaobei.png" />
+                <span class="nowvalues">
+                    设定值：<span class="values">@modelData.Oxygen</span>
+                    状态：<span class="values">正常</span>
+                </span>
+            </div>
+        </div>
+        <div class="list" style="width:330px;margin:25px;float:left;">
+            <div title="PH值浓度" class="main_group">
+                <span class="contains">
+                    <span class="count" id="phvalues">--</span>
+                </span>
+                <img class="con_img" style="margin-left:10px;" height="90" width="120" src="/Content/images/ph.jpg" />
+                <br />
+                <span class="nowvalues">
+                    设定值：<span class="values">@modelData.PhValues</span>
+                    状态：<span class="values">正常</span>
+                </span>
+            </div>
+        </div>
+        <img src="/Content/images/shuizhi.jpg" width="900" height="230" style="margin-left:58px;" />
+    </div>
+}
+else
+{
+    <div position="center" title="鱼塘水质监测系统">
+        <div class="list" style="width:330px;margin:25px;float:left;">
+            <div title="鱼塘水温" class="main_group">
+                <div class="jiedian">
+                    节点：<select id="shuiwensel">
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                </div>
+                <span class="contains" style="margin-top:0px;">
+                    <span class="count" id="shuiwen">--</span>摄氏度
+                </span>
+                <img class="con_img" height="90" src="/Content/images/piandi.jpg" />
+                <span class="nowvalues">
+                    设定值：<span class="values">默认配置</span>
+                    状态：<span class="values">正常</span>
+                </span>
+            </div>
+        </div>
+        <div class="list" style="width:330px;margin:25px;float:left;">
+            <div title="溶解氧" class="main_group">
+                <span class="contains">
+                    <span class="count" id="rongjieyang">--</span>mg/L
+                </span>
+                <img class="con_img" style="margin-left:40px;" height="90" src="/Content/images/shaobei.png" />
+                <span class="nowvalues">
+                    设定值：<span class="values">默认配置</span>
+                    状态：<span class="values">正常</span>
+                </span>
+            </div>
+        </div>
+        <div class="list" style="width:330px;margin:25px;float:left;">
+            <div title="PH值浓度" class="main_group">
+                <span class="contains">
+                    <span class="count" id="phvalues">--</span>
+                </span>
+                <img class="con_img" style="margin-left:10px;" height="90" width="120" src="/Content/images/ph.jpg" />
+                <br />
+                <span class="nowvalues">
+                    设定值：<span class="values">默认配置</span>
+                    状态：<span class="values">正常</span>
+                </span>
+            </div>
+        </div>
+        <img src="/Content/images/shuizhi.jpg" width="700" height="230" style="margin-left:58px;" />
+    </div>
+}}

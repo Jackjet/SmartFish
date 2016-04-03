@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "养殖环境检测";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+@section Header{
+    <link href="/Content/css/index.css" rel="stylesheet" />
+    <script src="/Scripts/View/Index.js"></script>
+}
+<div position="center" title="鱼塘环境监测系统">
+    <div class="list" style="width:330px;margin:25px;float:left;">
+        <div title="环境温度">
+            <div class="jiedian">
+                节点：<select id="wendusel">
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </div>
+            <span class="contains">
+                <span class="count" id="sheshidu">--</span>摄氏度
+            </span>
+            <img class="con_img" height="90" src="/Content/images/piandi.jpg" />
+            <span class="nowvalues">
+                设定值：<span class="values">默认配置</span>
+                状态：<span class="values">正常</span>
+            </span>
+        </div>
+    </div>
+    <div class="list" style="width:330px;margin:25px;float:left;">
+        <div title="环境湿度">
+            <div class="jiedian">
+                节点：<select id="shidusel">
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </div>
+            <span class="contains">
+                <span class="count" id="shidu">--</span>％RH
+            </span>
+            <img class="con_img" height="90" src="/Content/images/piangao.jpg" />
+            <span class="nowvalues">
+                设定值：<span class="values">默认配置</span>
+                状态：<span class="values">正常</span>
+            </span>
+        </div>
+    </div>
+    <div class="list" style="width:330px;margin:25px;float:left;">
+        <div title="光照强度">
+            <div class="jiedian">
+                节点：<select id="guangzhaosel">
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </div>
+            <span class="contains">
+                <span class="count" id="guangzhao">--</span>勒克斯
+            </span>
+            <img class="con_img" style="margin-left:28px" height="90" src="/Content/images/taiyang.png" />
+            <span class="nowvalues">
+                设定值：<span class="values">默认配置</span>
+                状态：<span class="values">正常</span>
+            </span>
+        </div>
+    </div>
+    <img src="/Content/images/yutang.jpg" height="230" width="1100" style="margin-left:20px;margin-top:-10px;" />
+</div>

@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "控制中心";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+@section Header{
+    <script src="~/Scripts/View/ControlCenter.js"></script>
+    <link href="/Content/css/ControlCenter.css" rel="stylesheet" />
+    <style type="text/css">
+        .button_my_1 {
+            width: 100px;
+            height: 30px;
+            margin-left: 80px;
+            margin-top: 35px;
+        }
+
+        .button_my_1 {
+            padding: 0;
+            margin: 0;
+            margin-left: 25px;
+            margin-top: 30px;
+        }
+    </style>
+}
+<div position="center" title="智能鱼塘控制中心" style="width:100%">
+    <div class="list" style="width:300px;margin:30px;float:left;">
+        <div title="排水换水控制">
+            <div style="float:left;">
+                <input type="button" id="startPaishui" value="开始排水" class="l-button l-button-submit button_my_1" />
+                <input type="button" id="endPaishui" value="停止排水" class="l-button l-button-submit button_my_1" />
+            </div>
+            <div style="float:left;">
+                <input type="button" id="startJinshui" value="开始进水" class="l-button l-button-submit button_my_1" />
+                <input type="button" id="endJinshui" value="停止进水" class="l-button l-button-submit button_my_1" />
+            </div>
+
+        </div>
+    </div>
+    <div class="list" style="width:300px;margin:30px;float:left;">
+        <div title="增氧水温控制">
+            <div style="float:left;">
+                <input type="button" id="addyangqi" value="开始增氧" class="l-button l-button-submit button_my_1" />
+                <input type="button" id="subyangqi" value="停止增氧" class="l-button l-button-submit button_my_1" />
+            </div>
+            <div style="float:left;">
+                <input type="button" id="addwendu" value="提升温度" class="l-button l-button-submit button_my_1" />
+                <input type="button" id="subwendu" value="停止增温" class="l-button l-button-submit button_my_1" />
+            </div>
+        </div>
+    </div>
+    <div class="list" style="width:300px;margin:30px;float:left;">
+        <div title="照明控制">
+            <div style="float:left;">
+                <input type="button" id="openfirst" value="1号灯(开)" class="l-button l-button-submit button_my_1" />
+                <input type="button" id="closefirst" value="1号灯(关)" class="l-button l-button-submit button_my_1" />
+            </div>
+            <div style="float:left;">
+                <input type="button" id="opensecond" value="2号灯(开)" class="l-button l-button-submit button_my_1" />
+                <input type="button" id="closesecond" value="2号灯(关)" class="l-button l-button-submit button_my_1" />
+            </div>
+        </div>
+    </div>
+    @{if (ViewData["model"] != null)
+    {
+        WLXK.SmartFish.Model.ControlData modelData = ViewData["model"] as WLXK.SmartFish.Model.ControlData;
+        <div class="list" style="width:300px;margin:30px;float:left;">
+            <div title="排水换水控制">
+                <div class="myform">
+                    PH峰值：<input type="text" id="Turbidity" value="@modelData.PhValues" class="my_text" />
+                    <input type="button" id="btnsetshuizi" value="设置" class="l-button l-button-submit button_set" />
+                </div>
+            </div>
+        </div>
+        <div class="list" style="width:300px;margin:30px;float:left;">
+            <div title="增氧控制">
+                <div class="myform">
+                    氧气谷值：<input type="text" id="yangqi" value="@modelData.Oxygen" class="my_text" />
+                    <input type="button" value="设置" id="btnsetyangqi" class="l-button l-button-submit button_set" />
+                </div>
+            </div>
+        </div>
+        <div class="list" style="width:300px;margin:30px;float:left;">
+            <div title="温度控制">
+                <div class="myform">
+                    温度范围：<input type="text" value="@modelData.MinTemperate" id="temp1" class="my_smtext" />--<input type="text" value="@modelData.MaxTemperate" id="temp2" class="my_smtext" />
+                    <input type="button" value="设置" id="btnSetTemp" class="l-button l-button-submit button_set" />
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="list" style="width:300px;margin:30px;float:left;">
+            <div title="排水换水控制">
+                <div class="myform">
+                    PH峰值：<input type="text" id="Turbidity" value="" class="my_text" />
+                    <input type="button" id="btnsetshuizi" value="设置" class="l-button l-button-submit button_set" />
+                </div>
+            </div>
+        </div>
+        <div class="list" style="width:300px;margin:30px;float:left;">
+            <div title="增氧控制">
+                <div class="myform">
+                    氧气谷值：<input type="text" id="yangqi" value="" class="my_text" />
+                    <input type="button" value="设置" id="btnsetyangqi" class="l-button l-button-submit button_set" />
+                </div>
+            </div>
+        </div>
+        <div class="list" style="width:300px;margin:30px;float:left;">
+            <div title="温度控制">
+                <div class="myform">
+                    温度范围：<input type="text" value="" id="temp1" class="my_smtext" />--<input type="text" value="" id="temp2" class="my_smtext" />
+                    <input type="button" value="设置" id="btnSetTemp" class="l-button l-button-submit button_set" />
+                </div>
+            </div>
+        </div>
+    }
+    }
+
+
+</div>
